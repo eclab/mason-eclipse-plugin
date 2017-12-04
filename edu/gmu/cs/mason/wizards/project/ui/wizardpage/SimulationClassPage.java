@@ -32,6 +32,11 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Text;
 
+/**
+ * This is the second page for the wizard. 
+ * @author Ermo Wei
+ *
+ */
 public class SimulationClassPage extends MasonWizardPage {
 
 	private static final String SIMSTATE_CLASS = "SimState Class";

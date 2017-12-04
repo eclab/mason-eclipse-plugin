@@ -18,6 +18,7 @@ import org.eclipse.jface.text.Document;
 import edu.gmu.cs.mason.Activator;
 import edu.gmu.cs.mason.wizards.model.FieldInformation;
 import edu.gmu.cs.mason.wizards.model.ProjectInformation;
+import edu.gmu.cs.mason.wizards.model.PropertyInformation;
 import edu.gmu.cs.mason.wizards.model.FieldInformation.Dimension;
 import edu.gmu.cs.mason.wizards.model.FieldInformation.Type;
 
@@ -119,6 +120,13 @@ public class SimStateFactory {
 			{
 				FieldInformation fieldInfo = projectInfo.fieldInfoList.get(i);
 				this.addSimulationField(unit.getAST(),classDeclaration, createFieldMethod, fieldInfo);
+			}
+			
+			// add Properties
+			for(int i = 0;i<projectInfo.propertiesInfoList.size();++i)
+			{
+				PropertyInformation propertyInfo = projectInfo.propertiesInfoList.get(i);
+				//
 			}
 
 			

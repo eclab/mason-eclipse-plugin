@@ -302,21 +302,22 @@ public class UnitCreator {
 		}
 	}
 	
-	
+	// TODO: remove the creation of agents in the wizard, this seems to be a bad choice.
 	public ArrayList<ICompilationUnit> createAgentSrcs()
 	{
 		ArrayList<ICompilationUnit> agentUnits = new ArrayList<ICompilationUnit>();
-		for(int i = 0;i<projectInfo.agentInfoList.size();++i)
+		if (projectInfo.agentInfoList != null)
 		{
-			AgentInformation info = projectInfo.agentInfoList.get(i);
-			ICompilationUnit unit = this.createAgentSrc(info.getAgentName(), info, projectInfo);
-			agentUnits.add(unit);
+			for(int i = 0;i<projectInfo.agentInfoList.size();++i)
+			{
+				AgentInformation info = projectInfo.agentInfoList.get(i);
+				ICompilationUnit unit = this.createAgentSrc(info.getAgentName(), info, projectInfo);
+				agentUnits.add(unit);
+			}
+			this.agentFileList = agentUnits;
 		}
 		
-		this.agentFileList = agentUnits;
-		
-		return agentUnits;
-				
+		return agentUnits;		
 	}
 	
 	public ICompilationUnit createAgentSrc(String agentIdentifier, AgentInformation info, ProjectInformation projectInfo)

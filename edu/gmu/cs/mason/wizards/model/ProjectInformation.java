@@ -19,5 +19,6 @@ public class ProjectInformation {
 	
 	public ArrayList<FieldInformation> fieldInfoList;
 	public ArrayList<AgentInformation> agentInfoList;
+	public ArrayList<PropertyInformation> propertiesInfoList;
 	
 }
