@@ -109,6 +109,13 @@ public class GUIFactory {
 			Coder.addMethodBody(unit.getAST(), method, source);
 			classDeclaration.bodyDeclarations().add(method);
 			
+			// add Model Inspector
+			modifiers = new String[]{"public"};
+			method = Coder.methodDef(unit.getAST(), modifiers, "Object", "getSimulationInspectedObject", null);
+			source = "return state;";
+			Coder.addMethodBody(unit.getAST(), method, source);
+			classDeclaration.bodyDeclarations().add(method);
+			
 			//add quit method
 			modifiers = new String[]{"public"};
 			method = Coder.methodDef(unit.getAST(), modifiers, "void", "quit", null);

@@ -145,6 +145,32 @@ public class Coder {
 			fragment.setInitializer(Coder.expressionDef(ast, initializer));
 		}
 		
+		FieldDeclaration fieldDeclaration = ast.newFieldDeclaration(fragment);
+		if(modifier.equals("public"))
+		{
+			fieldDeclaration.modifiers().add(ast.newModifier(Modifier.ModifierKeyword.PUBLIC_KEYWORD));
+		}
+		else if(modifier.equals("private"))
+		{
+			fieldDeclaration.modifiers().add(ast.newModifier(Modifier.ModifierKeyword.PRIVATE_KEYWORD));
+		}
+		
+		fieldDeclaration.setType(ast.newSimpleType(ast.newSimpleName(fieldType)));
+		
+		
+		return fieldDeclaration;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public static FieldDeclaration addFieldDeclaration(AST ast,String modifier, Type fieldType, String fieldName, String initializer)
+	{
+		VariableDeclarationFragment fragment = ast.newVariableDeclarationFragment();
+		fragment.setName(ast.newSimpleName(fieldName));
+		
+		if(initializer!=null)
+		{
+			fragment.setInitializer(Coder.expressionDef(ast, initializer));
+		}
 		
 		FieldDeclaration fieldDeclaration = ast.newFieldDeclaration(fragment);
 		if(modifier.equals("public"))
@@ -155,8 +181,7 @@ public class Coder {
 		{
 			fieldDeclaration.modifiers().add(ast.newModifier(Modifier.ModifierKeyword.PRIVATE_KEYWORD));
 		}
-		fieldDeclaration.setType(ast.newSimpleType(ast.newSimpleName(fieldType)));
-		
+		fieldDeclaration.setType(fieldType);
 		
 		return fieldDeclaration;
 	}

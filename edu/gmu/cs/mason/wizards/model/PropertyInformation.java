@@ -205,6 +205,15 @@ public class PropertyInformation
 		return buffer.toString();
 	}
 	
+	public String getMenuOptionsStringWithQuotes()
+	{
+		StringBuffer buffer = new StringBuffer();
+		buffer.append("\"" + options.get(0) + "\"");
+		for (int i = 1;i<options.size();++i)
+			buffer.append(",\"" + options.get(i) + "\"");
+		return buffer.toString();
+	}
+	
 	public NameStatus getNameStatus()
 	{
 		return nameStatus;
@@ -221,11 +230,11 @@ public class PropertyInformation
 	{
 		return domainStatus;
 	}
-	public Double getMinValue()
+	public double getMinValue()
 	{
 		return min;
 	}
-	public Double getMaxValue()
+	public double getMaxValue()
 	{
 		return max;
 	}

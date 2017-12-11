@@ -16,6 +16,8 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 
+import edu.gmu.cs.mason.util.MasonDirectoryVerifier;
+import edu.gmu.cs.mason.wizards.MasonWizardConstants;
 import edu.gmu.cs.mason.wizards.model.ProjectInformation;
 import edu.gmu.cs.mason.wizards.model.PropertyInformation;
 import edu.gmu.cs.mason.wizards.project.ui.MasonProjectWizard;
@@ -221,8 +223,9 @@ public class PropertiesPage extends MasonWizardPage
 	@Override
 	protected boolean validatePage()
 	{
-		// TODO Auto-generated method stub
-		return false;
+		// FIXME add verification
+		saveDataToModel();
+		return true;
 	}
 
 }
